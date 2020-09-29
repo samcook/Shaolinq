@@ -33,7 +33,11 @@ namespace Shaolinq.SqlServer
 		{
 			var reader = record.Cast<SqlDataReader>();
 
-			return ToDecimal(reader.GetSqlDecimal(ordinal));
+			//var fieldType = reader.GetFieldType(ordinal);
+
+			return reader.GetDecimal(ordinal);
+
+			//return ToDecimal(reader.GetSqlDecimal(ordinal));
 		}
 
 		private static decimal ToDecimal(SqlDecimal value)
